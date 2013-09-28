@@ -25,3 +25,6 @@ def get_suspect_mentions():
         suspect_mentions[suspect] = mentions
 
     return suspect_mentions
+
+def get_tweet_count():
+    return red_john_tweets.count()
