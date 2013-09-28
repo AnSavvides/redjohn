@@ -13,7 +13,7 @@ def get_mentions():
 @app.route('/api/tweets/count', methods=['GET'])
 @support_jsonp
 def get_total_tweet_count():
-    return jsonify(results=get_tweet_count)
+    return jsonify(results=get_tweet_count())
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
