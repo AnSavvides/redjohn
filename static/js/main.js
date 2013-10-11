@@ -2,6 +2,8 @@
 
     "use strict";
 
+    var apiUrl = "http://redjohn.herokuapp.com/api/";
+
     function addScoresToSuspects(response) {
         _.each(response.results, function(mentions, suspect) {
             $("#" + suspect).find(".mentions").text(mentions);
@@ -13,14 +15,14 @@
     }
 
     $.ajax({
-        url: "http://redjohn.herokuapp.com/api/suspects/mentions",
+        url: apiUrl + "suspects/mentions",
         type: "GET",
         dataType: "jsonp",
         success: addScoresToSuspects
     });
 
     $.ajax({
-        url: "http://redjohn.herokuapp.com/api/tweets/count",
+        url: apiUrl + "tweets/count",
         type: "GET",
         dataType: "jsonp",
         success: addTotal
