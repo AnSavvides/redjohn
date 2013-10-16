@@ -4,19 +4,23 @@
 
     var apiUrl = "http://redjohn.herokuapp.com/api/tweets/";
 
+    function getPrettyNumber(number) {
+        return number.toLocaleString();
+    }
+
     function addScoresToSuspects(response) {
         var suspectCount = 0;
 
         _.each(response.results, function(mentions, suspect) {
-            $("#" + suspect).find(".mentions").text(mentions + " mentions");
+            $("#" + suspect).find(".mentions").text(getPrettyNumber(mentions) + " mentions");
             suspectCount += parseFloat(mentions);
         });
 
-        $("#suspect-count").text(suspectCount);
+        $("#suspect-count").text(getPrettyNumber(suspectCount));
     }
 
     function addTotal(response) {
-        $("#tweet-count").text(response.results);
+        $("#tweet-count").text(getPrettyNumber(response.results));
     }
 
     $.ajax({
