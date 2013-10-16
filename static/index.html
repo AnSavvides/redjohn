@@ -26,49 +26,23 @@
                 Tweets mentioning a Red John suspect: <span id="suspect-count" class="stat"></span>
             </h3>
         </div>
-        <div class="suspects col-lg-offset-1">
-            <div id="stiles" class="col-lg-4">
-                <h4 class="row">Bret Stiles</h4>
-                <img class="row" src="img/stiles.jpg" />
-                <h4 class="mentions row stat"></h4>
-            </div>
-            <div id="bertram" class="col-lg-4">
-                <h4 class="row">Gale Bertram</h4>
-                <img class="row" src="img/bertram.jpg" />
-                <h4 class="mentions row stat"></h4>
-            </div>
-            <div id="kirkland" class="col-lg-4">
-                <h4 class="row">Robert Kirkland</h4>
-                <img class="row" src="img/kirkland.jpg" />
-                <h4 class="mentions row stat"></h4>
-            </div>
-            <div id="mcallister" class="col-lg-4">
-                <h4 class="row">Sheriff McAllister</h4>
-                <img class="row" src="img/mcallister.jpg" />
-                <h4 class="mentions row stat"></h4>
-            </div>
-            <div id="haffner" class="col-lg-4">
-                <h4 class="row">Ray Haffner</h4>
-                <img class="row" src="img/haffner.jpg" />
-                <h4 class="mentions row stat"></h4>
-            </div>
-            <div id="smith" class="col-lg-4">
-                <h4 class="row">Reede Smith</h4>
-                <img class="row" src="img/smith.jpg" />
-                <h4 class="mentions row stat"></h4>
-            </div>
-            <div id="partridge" class="col-lg-4">
-                <h4 class="row">Brett Partridge</h4>
-                <img class="row" src="img/partridge.jpg" />
-                <h4 class="mentions row stat"></h4>
-            </div>
-        </div>
+        <div id="suspects" class="col-lg-offset-1"></div>
         <script src="js/vendor/pace.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
         <script>window._ || document.write('<script src="js/vendor/underscore-min.js"><\/script>')</script>
+        <script src="js/vendor/handlebars.js"></script>
+        <script src="" id="suspect-template" type="text/x-handlebars-template">
+            {{#each suspects}}
+                <div id="{{name}}" class="col-lg-4">
+                    <h4 class="row">{{prettyName}}</h4>
+                    <img class="row" src="img/{{name}}.jpg" />
+                    <h4 class="mentions row stat">{{mentions}} mentions</h4>
+                </div>
+            {{/each}}
+        </script>
         <script src="js/main.js"></script>
     </body>
 </html>
