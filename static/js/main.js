@@ -14,7 +14,7 @@
       };
 
     function getPrettyNumber(number) {
-        return number.toLocaleString();
+        return number.toLocaleString("en-GB");
     }
 
     function addScoresToSuspects(response) {
