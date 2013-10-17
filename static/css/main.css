@@ -1,3 +1,7 @@
 .stat {
     color: #941100;
 }
+
+body {
+    overflow-x: hidden;
+}
