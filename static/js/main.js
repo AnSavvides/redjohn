@@ -23,16 +23,20 @@
             source = $("#suspect-template").html(),
             template = Handlebars.compile(source),
             $suspectsDiv = $("#suspects"),
+            sortedResults = _.sortBy(response.results, function(mentions) { return mentions; }),
             context, $suspects;
-        
+
         _.each(response.results, function(mentions, suspect) {
             suspects.push({
                 name: suspect,
                 prettyName: suspectNames[suspect],
-                mentions: getPrettyNumber(mentions)
+                mentions: getPrettyNumber(mentions),
+                index: sortedResults.indexOf(mentions)
             });
             suspectCount += parseFloat(mentions);
         });
+        
+        suspects = _.sortBy(suspects, "index").reverse();
 
         context = { suspects: suspects };
         $suspects = template(context);
