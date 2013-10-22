@@ -52,15 +52,13 @@
     $.ajax({
         url: apiUrl + "suspects/count",
         type: "GET",
-        dataType: "jsonp",
-        success: addScoresToSuspects
-    });
+        dataType: "jsonp"
+    }).done(addScoresToSuspects);
 
     $.ajax({
         url: apiUrl + "count",
         type: "GET",
-        dataType: "jsonp",
-        success: addTotal
-    });
+        dataType: "jsonp"
+    }).done(addTotal);
 
 })(jQuery);
