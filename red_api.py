@@ -30,6 +30,8 @@ def get_tweet_count():
     return red_john_tweets.count()
 
 def get_suspect_tweets(suspect, limit=5):
-    return red_john_tweets.find({
+    tweets = red_john_tweets.find({
         'suspect': suspect
     })[:limit]
+
+    return list(tweets)
