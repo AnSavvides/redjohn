@@ -28,3 +28,8 @@ def get_suspect_mentions():
 
 def get_tweet_count():
     return red_john_tweets.count()
+
+def get_suspect_tweets(suspect, limit=5):
+    return red_john_tweets.find({
+        'suspect': suspect
+    })[:limit]
