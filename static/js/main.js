@@ -11,7 +11,8 @@
             kirkland: "Robert Kirkland",
             bertram: "Gale Bertram",
             stiles: "Brett Stiles"
-      };
+        },
+        deadSuspects = ["partridge", "kirkland"];
 
     function getPrettyNumber(number) {
         return number.toLocaleString("en-GB");
@@ -31,7 +32,8 @@
                 name: suspect,
                 prettyName: suspectNames[suspect],
                 mentions: getPrettyNumber(mentions),
-                index: sortedResults.indexOf(mentions)
+                index: sortedResults.indexOf(mentions),
+                dead: _.contains(deadSuspects, suspect)
             });
             suspectCount += parseFloat(mentions);
         });

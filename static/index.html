@@ -38,8 +38,16 @@
         <script id="suspect-template" type="text/x-handlebars-template">
             {{#each suspects}}
                 <div id="{{name}}" class="col-lg-4">
+                    {{#if dead}}
+                        <div class="dead-stamp">DEAD</div>
+                    {{/if}}
                     <h4 class="row">{{prettyName}}</h4>
-                    <img class="row" src="img/{{name}}.jpg" />
+                    {{#if dead}}
+                        <img class="row fade" src="img/{{name}}.jpg" />
+                    {{/if}}
+                    {{#unless dead}}
+                        <img class="row" src="img/{{name}}.jpg" />
+                    {{/unless}}
                     <h4 class="mentions row stat">{{mentions}} mentions</h4>
                 </div>
             {{/each}}

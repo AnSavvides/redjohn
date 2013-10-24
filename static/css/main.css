@@ -5,3 +5,30 @@
 body {
     overflow-x: hidden;
 }
+
+.dead-stamp {
+    position: absolute;
+    width: 245px;
+    background-color: #941100;
+    color: #FFF;
+    margin-top: 118px;
+    margin-left: -48px;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 1;
+    opacity: 0.7;
+
+    /* Rounding corners */
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+
+    /* Rotating the div */
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.fade {
+    opacity: 0.7 !important;
+}
