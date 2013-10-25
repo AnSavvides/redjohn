@@ -1,7 +1,6 @@
 import os
 from pymongo import DESCENDING
 from pymongo import MongoClient
-from bson.json_util import dumps
 
 MONGO_USER = os.getenv('MONGO_USER')
 MONGO_PASSWORD = os.getenv('MONGO_PASSWORD')
@@ -32,8 +31,17 @@ def get_tweet_count():
     return red_john_tweets.count()
 
 def get_suspect_tweets(suspect, limit=5):
-    tweets = red_john_tweets.find({
+    tweets = []
+
+    raw_tweets = red_john_tweets.find({
         'suspect': suspect
     }).sort('entry_time', DESCENDING)[:limit]
 
-    return dumps(tweets)
+    for tweet in raw_tweets:
+        tweets.append({
+            'text': tweet['text'],
+            'user': tweet['user'],
+            'created_at': tweet['created_at']
+        })
+
+    return tweets
