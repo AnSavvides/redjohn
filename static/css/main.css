@@ -32,3 +32,7 @@ body {
 .faded {
     opacity: 0.7 !important;
 }
+
+.mentions {
+    max-width: 120px;
+}
