@@ -29,6 +29,6 @@ body {
     transform: rotate(-45deg);
 }
 
-.fade {
+.faded {
     opacity: 0.7 !important;
 }
