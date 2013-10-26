@@ -15,7 +15,7 @@ def get_mentions():
 def get_total_tweet_count():
     return jsonify(results=get_tweet_count())
 
-@app.route('/api/tweets/<suspect>/<limit>')
+@app.route('/api/tweets/<suspect>/<limit>', methods=['GET'])
 @support_jsonp
 def get_tweets(suspect, limit):
     return jsonify(results=get_suspect_tweets(suspect, int(limit)))
