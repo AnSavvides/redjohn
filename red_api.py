@@ -19,14 +19,17 @@ def get_suspect_mentions():
         mentions = red_john_tweets.find({
             'suspect': suspect 
         }).count()
-        suspect_mentions[suspect] = mentions
+        suspect_mentions[suspect] = {
+            'count': mentions,
+            'most_recent_tweets': get_recent_tweets(suspect)
+        }
 
     return suspect_mentions
 
 def get_tweet_count():
     return red_john_tweets.count()
 
-def get_suspect_tweets(suspect, limit=5):
+def get_recent_tweets(suspect, limit=3):
     tweets = []
 
     raw_tweets = red_john_tweets.find({
