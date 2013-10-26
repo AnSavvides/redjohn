@@ -1,4 +1,3 @@
-import os
 import json
 from datetime import datetime
 
@@ -7,6 +6,9 @@ from tweepy import OAuthHandler
 from tweepy import Stream
 
 from pymongo import MongoClient
+from settings import MONGO_URI
+from settings import TWITTER_CONSUMER_SECRET, TWITTER_CONSUMER_KEY
+from settings import TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_TOKEN_SECRET
 
 red_john_text = ['red john', 'redjohn']
 
@@ -14,22 +16,6 @@ suspects = [
     'partridge', 'kirkland', 'bertram', 'stiles', 'haffner',
     'mcallister', 'smith'
 ]
-
-# Use environment variables to set up all our keys and tokens
-#
-consumer_key = os.getenv('CONSUMER_KEY')
-consumer_secret = os.getenv('CONSUMER_SECRET')
-access_token = os.getenv('ACCESS_TOKEN')
-access_token_secret = os.getenv('ACCESS_SECRET')
-
-# All relevant tweet information will be stored in MongoDB, but
-# feel free to change this if Mongo is not your cup of tea. If
-# you do decide to go with Mongo, check out MongoHQ as it can
-# make life a lot easier.
-#
-MONGO_USER = os.getenv('MONGO_USER')
-MONGO_PASSWORD = os.getenv('MONGO_PASSWORD')
-MONGO_URI = 'mongodb://{0}:{1}@paulo.mongohq.com:10039/redjohn'.format(MONGO_USER, MONGO_PASSWORD)
 
 # Open a connection to Mongo once
 #
@@ -95,8 +81,8 @@ class RedJohnListener(StreamListener):
 
 if __name__ == '__main__':
     red_john_listener = RedJohnListener()
-    auth = OAuthHandler(consumer_key, consumer_secret)
-    auth.set_access_token(access_token, access_token_secret)
+    auth = OAuthHandler(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET)
+    auth.set_access_token(TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_TOKEN_SECRET)
 
     stream = Stream(auth, red_john_listener)
     stream.filter(track=red_john_text)

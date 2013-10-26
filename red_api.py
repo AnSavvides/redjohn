@@ -1,10 +1,6 @@
-import os
 from pymongo import DESCENDING
 from pymongo import MongoClient
-
-MONGO_USER = os.getenv('MONGO_USER')
-MONGO_PASSWORD = os.getenv('MONGO_PASSWORD')
-MONGO_URI = 'mongodb://{0}:{1}@paulo.mongohq.com:10039/redjohn'.format(MONGO_USER, MONGO_PASSWORD)
+from settings import MONGO_URI
 
 # Open a connection to Mongo once
 #
