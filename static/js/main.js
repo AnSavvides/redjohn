@@ -70,14 +70,24 @@
     function assignSuspectPopovers(results) {
         $(".mentions").each(function() {
             var $suspectMentions = $(this),
-                suspectName = $suspectMentions.data("name");
+                suspectName = $suspectMentions.data("name"),
+                content = preparePopoverContent(results[suspectName].most_recent_tweets);
 
             $(this).popover({
                 title: suspectNames[suspectName],
-                content: results[suspectName].most_recent_tweets,
+                content: content,
+                html: true,
                 trigger: "hover"
             });
         });
+    }
+
+    function preparePopoverContent(tweets) {
+        var context = { tweets: tweets },
+            source = $("#tweets-template").html(),
+            template = Handlebars.compile(source);
+
+        return template(context);
     }
 
     function addTotal(response) {

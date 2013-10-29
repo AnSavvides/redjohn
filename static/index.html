@@ -52,6 +52,15 @@
                 </div>
             {{/each}}
         </script>
+        <script id="tweets-template" type="text/x-handlebars-template">
+            <ul>
+            {{#each tweets}}
+                <li>
+                    <span>{{text}}</span> - <span>@{{user.screen_name}}</span>
+                </li>
+            {{/each}}
+            </ul>
+        </script>
         <script src="js/main.js"></script>
     </body>
 </html>
