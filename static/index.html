@@ -53,13 +53,12 @@
             {{/each}}
         </script>
         <script id="tweets-template" type="text/x-handlebars-template">
-            <ul>
             {{#each tweets}}
-                <li>
-                    <span>{{text}}</span> - <span>@{{user.screen_name}}</span>
-                </li>
+                <div>
+                    <span class="tweet-text">{{text}}</span>
+                    <a class="twitter-user" target="_blank" href="https://twitter.com/{{user.screen_name}}">@{{user.screen_name}}</a>
+                </div>
             {{/each}}
-            </ul>
         </script>
         <script src="js/main.js"></script>
     </body>
