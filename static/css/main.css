@@ -37,3 +37,19 @@ body {
     max-width: 120px;
     cursor: pointer;
 }
+
+.tweet {
+    margin-bottom: 5px;
+}
+
+.user {
+    font-weight: bold;
+}
+
+.text {
+    font-style: italic;
+}
+
+.popover-title {
+    font-weight: bold !important;
+}
