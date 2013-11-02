@@ -71,21 +71,26 @@
         $(".mentions").each(function() {
             var $suspectMentions = $(this),
                 suspectName = $suspectMentions.data("name"),
-                content = preparePopoverContent(results[suspectName].most_recent_tweets);
+                content = preparePopoverContent(results[suspectName].most_recent_tweets),
+                self = this;
 
             $(this)
                 .popover({
-                    title: suspectNames[suspectName],
+                    title: suspectNames[suspectName] + "<span class='close'>x</span>",
                     content: content,
                     html: true,
-                    trigger: "hover"
+                    trigger: "click"
                 })
-                .mouseover(function() {
+                .click(function() {
                     $(".tweet").linky({
                         mentions: true,
                         hashtags: true,
                         urls: true,
                         linkTo: "twitter"
+                    });
+
+                    $(self).next().find(".close").click(function() {
+                        $(self).popover("hide");
                     });
                 });
         });

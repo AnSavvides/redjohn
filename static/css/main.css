@@ -35,4 +35,5 @@ body {
 
 .mentions {
     max-width: 120px;
+    cursor: pointer;
 }
