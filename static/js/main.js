@@ -63,6 +63,7 @@
         // Now that the suspects have been rendered, let's assign
         // popovers.
         assignSuspectPopovers(response.results);
+        $("#footer").css("display", "block");
     }
 
     // Let's assign a popover to each suspect, to be triggered on hover,

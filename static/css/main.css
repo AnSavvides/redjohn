@@ -53,3 +53,8 @@ body {
 .popover-title {
     font-weight: bold !important;
 }
+
+#footer {
+    display: none;
+    margin-bottom: 10px;
+}

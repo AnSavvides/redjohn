@@ -26,7 +26,12 @@
                 Tweets mentioning a Red John suspect: <span id="suspect-count" class="stat"></span>
             </h3>
         </div>
-        <div id="suspects" class="col-lg-offset-1"></div>
+        <div class="row">
+            <div id="suspects" class="col-lg-offset-1"></div>
+        </div>
+        <div id="footer" class="col-lg-offset-3">
+            Created by <a href="https://twitter.com/andreassavvides" target="_blank">Andreas Savvides</a>. All code for this project is open source and can be found over at <a href="https://github.com/AnSavvides/redjohn" target="_blank">GitHub</a>.
+        </div>
         <script src="js/vendor/pace.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
@@ -56,7 +61,7 @@
         <script id="tweets-template" type="text/x-handlebars-template">
             {{#each tweets}}
                 <div class="tweet">
-                    {{text}} - @{{user.screen_name}}
+                    <span class="text">{{text}}</span> - @{{user.screen_name}}
                 </div>
             {{/each}}
         </script>
