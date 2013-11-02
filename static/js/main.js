@@ -73,12 +73,21 @@
                 suspectName = $suspectMentions.data("name"),
                 content = preparePopoverContent(results[suspectName].most_recent_tweets);
 
-            $(this).popover({
-                title: suspectNames[suspectName],
-                content: content,
-                html: true,
-                trigger: "hover"
-            });
+            $(this)
+                .popover({
+                    title: suspectNames[suspectName],
+                    content: content,
+                    html: true,
+                    trigger: "hover"
+                })
+                .mouseover(function() {
+                    $(".tweet").linky({
+                        mentions: true,
+                        hashtags: true,
+                        urls: true,
+                        linkTo: "twitter"
+                    });
+                });
         });
     }
 
