@@ -1,6 +1,7 @@
 from pymongo import DESCENDING
 from pymongo import MongoClient
 from settings import MONGO_URI
+from datetime import datetime
 
 # Open a connection to Mongo once
 #
@@ -64,5 +65,7 @@ def get_tweet_time_series():
             'date': date,
             'count': count
         })
+
+    time_series = sorted(time_series, key=lambda k: datetime.strptime(k['date'], '%Y-%m-%d'))
 
     return time_series
