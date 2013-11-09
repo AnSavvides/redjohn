@@ -57,4 +57,12 @@ def get_tweet_time_series():
         else:
             tweet_time_series[created_at] = 1
 
-    return tweet_time_series
+    time_series = []
+
+    for date, count in tweet_time_series.iteritems():
+        time_series.append({
+            'date': date,
+            'count': count
+        })
+
+    return time_series
