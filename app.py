@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import jsonify
 from red_api import get_suspect_mentions, get_tweet_count, get_recent_tweets
+from red_api import get_tweet_time_series
 from jsonp_flask import support_jsonp
 
 app = Flask(__name__)
@@ -19,6 +20,11 @@ def get_total_tweet_count():
 @support_jsonp
 def get_tweets(suspect, limit):
     return jsonify(results=get_recent_tweets(suspect, int(limit)))
+
+@app.route('/api/tweets/time_series', methods=['GET'])
+@support_jsonp
+def get_time_series():
+    return jsonify(results=get_tweet_time_series())
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

@@ -44,3 +44,17 @@ def get_recent_tweets(suspect, limit=3):
         })
 
     return tweets
+
+def get_tweet_time_series():
+    all_tweets = red_john_tweets.find()
+
+    tweet_time_series = {}
+
+    for tweet in all_tweets:
+        created_at = tweet['created_at'].strftime('%Y-%m-%d')
+        if created_at in tweet_time_series:
+            tweet_time_series[created_at] = tweet_time_series[created_at] + 1
+        else:
+            tweet_time_series[created_at] = 1
+
+    return tweet_time_series
