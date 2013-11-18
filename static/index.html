@@ -12,25 +12,28 @@
     </head>
     <body>
         <div class="row">
-            <div class="col-lg-4 col-lg-offset-4">
+            <div class="col-lg-6 col-lg-offset-4">
                 <h1>Who is Red John?</h1>
             </div>
         </div>
         <div class="row">
-            <h3 class="col-lg-4 col-lg-offset-3">
-                Tweets mentioning Red John: <span id="tweet-count" class="stat"></span>
-            </h3>
+            <h3 class="col-lg-offset-1">Tweets over time</h3>
+            <svg id="bar-chart" class="col-lg-offset-1"></svg>
         </div>
         <div class="row">
-            <h3 class="col-lg-5 col-lg-offset-3">
-                Tweets mentioning a Red John suspect: <span id="suspect-count" class="stat"></span>
-            </h3>
+            <h4 class="col-lg-4 col-lg-offset-2">
+                Red John tweets: <span id="tweet-count" class="stat big"></span>
+            </h4>
+            <h4 class="col-lg-4 col-lg-offset-2">
+                Suspect tweets: <span id="suspect-count" class="stat big"></span>
+            </h4>
         </div>
         <div class="row">
-            <div id="suspects" class="col-lg-offset-1"></div>
+            <h3 class="col-lg-offset-1">Suspects</h3>
+            <div id="suspects" class="col-lg-offset-2"></div>
         </div>
         <div id="footer" class="col-lg-offset-3">
-            Created by <a href="https://twitter.com/andreassavvides" target="_blank">Andreas Savvides</a>. All code for this project is open source and can be found over at <a href="https://github.com/AnSavvides/redjohn" target="_blank">GitHub</a>.
+            Created by <a href="https://twitter.com/andreassavvides" target="_blank">Andreas Savvides</a>. All code is open source and can be found over at <a href="https://github.com/AnSavvides/redjohn" target="_blank">GitHub</a>.
         </div>
         <script src="js/vendor/pace.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
@@ -41,9 +44,10 @@
         <script>window._ || document.write('<script src="js/vendor/underscore-min.js"><\/script>')</script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
         <script>window.Handlebars || document.write('<script src="js/vendor/handlebars.js"><\/script>')</script>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
         <script id="suspect-template" type="text/x-handlebars-template">
             {{#each suspects}}
-                <div id="{{name}}" class="col-lg-4">
+                <div id="{{name}}" class="col-lg-4 suspect">
                     {{#if dead}}
                         <div class="dead-stamp">DEAD</div>
                     {{/if}}

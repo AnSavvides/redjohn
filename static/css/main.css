@@ -1,10 +1,13 @@
+body {
+    width: 960px;
+}
+
 .stat {
     color: #941100;
 }
 
-body {
-    overflow-x: hidden;
-    margin-left: 45px;
+.stat.big {
+    font-size: 32px;
 }
 
 .dead-stamp {
@@ -39,6 +42,10 @@ body {
     cursor: pointer;
 }
 
+.popover {
+    width: 276px;
+}
+
 .tweet {
     margin-bottom: 5px;
 }
@@ -55,8 +62,22 @@ body {
     font-weight: bold !important;
 }
 
+#bar-chart {
+    height: 230px;
+}
+
+.axis path {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
 #footer {
     display: none;
     margin-top: 25px;
     padding-bottom: 25px;
+}
+
+#footer a {
+    color: #941100;
 }
