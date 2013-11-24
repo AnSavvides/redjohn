@@ -91,7 +91,7 @@
                     });
 
                     $(self).next().find(".close").click(function() {
-                        $(self).popover("hide");
+                        $(".popover").remove();
                     });
                 });
         });
