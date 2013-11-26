@@ -12,7 +12,9 @@
             bertram: "Gale Bertram",
             stiles: "Brett Stiles"
         },
-        deadSuspects = ["partridge", "kirkland"];
+        deadSuspects = [
+            "partridge", "kirkland", "bertram", "stiles", "haffner"
+        ];
 
     // Adding commas to numbers, making them more readable
     function getPrettyNumber(number) {
