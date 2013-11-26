@@ -54,10 +54,9 @@
                     <h4 class="row">{{prettyName}}</h4>
                     {{#if dead}}
                         <img class="row faded" src="img/{{name}}.jpg" />
-                    {{/if}}
-                    {{#unless dead}}
+                    {{else}}
                         <img class="row" src="img/{{name}}.jpg" />
-                    {{/unless}}
+                    {{/if}}
                     <h4 class="mentions row stat" data-name="{{name}}">{{mentions}} mentions</h4>
                 </div>
             {{/each}}
