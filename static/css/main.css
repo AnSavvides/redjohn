@@ -15,7 +15,7 @@ body {
     font-size: 32px;
 }
 
-.dead-stamp {
+.dead-stamp, .red-john-stamp {
     position: absolute;
     width: 245px;
     background-color: #941100;
@@ -36,6 +36,10 @@ body {
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
     transform: rotate(-45deg);
+}
+
+.red-john-stamp {
+    opacity: 1;
 }
 
 .faded {

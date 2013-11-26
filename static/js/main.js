@@ -14,7 +14,8 @@
         },
         deadSuspects = [
             "partridge", "kirkland", "bertram", "stiles", "haffner"
-        ];
+        ],
+        redJohn = "mcallister";
 
     // Adding commas to numbers, making them more readable
     function getPrettyNumber(number) {
@@ -47,7 +48,8 @@
                 prettyName: suspectNames[suspect],
                 mentions: getPrettyNumber(suspectInfo.count),
                 index: sortedResults.indexOf(sortedResultsMatch),
-                dead: _.contains(deadSuspects, suspect)
+                dead: _.contains(deadSuspects, suspect),
+                redjohn: suspect === redJohn ? true : false
             });
 
             suspectCount += parseFloat(suspectInfo.count);
